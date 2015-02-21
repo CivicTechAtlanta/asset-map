@@ -55,9 +55,9 @@ var landmarksLayer = L.geoJson(landmarks, {
 }).addTo(map);
 
 var overlayMaps = {
-  "MARTA Train Stops": MARTALayer,
+  "MARTA Train Stations": MARTALayer,
   "Historical Markers": historicalMarkersLayer,
-  "Landmarks": landmarksLayer
+  "<span style='color: #8e44ad;'>▌</span>Landmarks": landmarksLayer
 };
 
 L.control.layers(null, overlayMaps, {
