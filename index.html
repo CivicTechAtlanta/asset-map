@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes">
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+  <title>South Downtown</title>
+  <link rel="icon"
+    type="image/png"
+    href="http://mollietaylor.com/favicon.png">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+  <![endif]-->
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <!-- Awesome Markers -->
+  <link rel="stylesheet" type="text/css" href="plugins/awesome-markers/leaflet.awesome-markers.css">
+  <script type="text/javascript" src="plugins/awesome-markers/leaflet.awesome-markers.min.js"></script>
+
+  <script type="text/javascript" src="data/south-downtown.js"></script>
+  <script type="text/javascript" src="data/historical-markers.js"></script>
+  <script type="text/javascript" src="data/landmarks.js"></script>
+  <script type="text/javascript" src="data/marta-stations.js"></script>
+
+  <style type="text/css">
+    html, body{
+      padding: 0;
+      margin: 0 auto;
+      height: 100%;
+      width: 100%;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .intro-popup .leaflet-popup-tip-container {
+      width: 0;
+      height: 0;
+    }
+  </style>
+
+</head>
+<body>
+
+<div id="map"></div>
+
+<script type="text/javascript">
+  var map = L.map('map', {
+    attributionControl: false
+  }).setView([33.750,-84.392], 15);
+</script>
+<script type="text/javascript" src="map.js"></script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-4109304-17', 'codeforatlanta.org');
+ga('send', 'pageview');
+
+</script>
+
+
+</body>
+</html>
