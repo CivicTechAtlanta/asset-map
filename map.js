@@ -4,6 +4,10 @@ var historicalMapLayer = L.imageOverlay('data/1949.png',
   [[33.74123662962249, -84.39920425415039],[33.758035496175616,-84.37899112701415]],
   {opacity: 0.9});
 
+var neighborhoodProfileLayer = L.imageOverlay('data/neighborhood-profile.png', 
+  [[33.743383923408516, -84.40467596054077],[33.7700260223456,-84.36972141265869]],
+  {opacity: 0.9});
+
 // foursquare integration
 
 var config = {
@@ -230,7 +234,7 @@ var map = L.map('map', {
   attributionControl: false,
   center: new L.LatLng(33.75, -84.392), 
   zoom: 15,
-  layers: [historicalMapLayer, southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, entertainmentLayer, residentialLayer, foodLayer]
+  layers: [southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, entertainmentLayer, residentialLayer, foodLayer]
 });
 L.control.attribution({position: 'bottomleft'}).addTo(map);
 
@@ -246,6 +250,7 @@ var overlayMaps = {
   "<i class='fa fa-home' style='color:#5B396B'></i> Residential Building <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": residentialLayer,
   "<i class='fa fa-birthday-cake' style='color:#D152B8'></i> Entertainment <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": entertainmentLayer,
   "<span style='color: #f07300;'>▌</span>Parcels": parcelLayer,
+  "Neighborhood Profile": neighborhoodProfileLayer,
   "1949 Aerial Survey": historicalMapLayer,
   "<i class='fa fa-circle-o' style='color:#A13336'></i> Vacant Properties": vacantLayer,
   "<i class='fa fa-group' style='color:#436877'></i> Community Assets": communityAssetsLayer,
