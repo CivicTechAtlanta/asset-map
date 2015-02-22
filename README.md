@@ -1,4 +1,4 @@
-This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.codeforamerica.org/events/codeacross-2015/).
+This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.codeforamerica.org/events/codeacross-2015/). Soon, the map will have a home on [southdowntown.org](http://www.southdowntown.org/).
 
 ##Data and sources: 
 
@@ -43,4 +43,41 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 
 * Add more layers
 * Create separate maps for different audiences
+* Add to South Downtown website
 
+##Some possible ways to narrow the map for different audiences
+
+* Real estate developers
+* Advocacy (city planning, decision-makers, etc.)
+* Visitors
+
+##Potential Additions:
+
+* Population density and demographics
+* Zoning
+* Parking (lots, decks, street)
+* Use parcel layer to shade parcels based on data (use, ownership, etc.)
+* Historical uses (esp. for vacancies)
+* Tax (TAD?)
+* More transit
+	* Bus stops (MARTA and regional) and/or routes
+	* Greyhound
+	* Bike lanes & routes
+	* Streetcar
+	* Map usage
+* Infrastructure (plumbing, electrical, fiber)
+* Social services
+* Economic indicators
+* Organizations and other social events, etc.
+* Government use
+* Security (GSU police, Fulton county police & sheriff, APD, gov't building security)
+* Proximity to stuff outside South Downtown
+* Ambassadors
+* Future plans (building permits; future land use map)
+* Events
+* Previous property sales/prices
+* Visitors to the area
+* More landmarks
+* Filming locations
+* Retail
+* Integrating other CodeAcross groups' efforts: storytelling, branding, participatory
