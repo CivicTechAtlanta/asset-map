@@ -1,3 +1,9 @@
+// images
+
+var historicalMapLayer = L.imageOverlay('data/1949.png', 
+  [[33.74123662962249, -84.39920425415039],[33.758035496175616,-84.37899112701415]],
+  {opacity: 0.9});
+
 // foursquare integration
 
 var config = {
@@ -21,7 +27,7 @@ var API_ENDPOINT = 'https://api.foursquare.com/v2/venues/search' +
   '&categoryId=4bf58dd8d48988d126941735' +
   '&callback=?';
 
-var foursquarePlaces = L.layerGroup().addTo(map);
+var foursquarePlaces = L.layerGroup();
 
 $.getJSON(API_ENDPOINT
   .replace('CLIENT_ID', CLIENT_ID)
@@ -47,16 +53,19 @@ $.getJSON(API_ENDPOINT
   });
 
 
-// map
+// shapefiles
 
-L.control.attribution({position: 'bottomleft'}).addTo(map);
+var parcelLayer = L.shapefile('data/SD_parcel2012/southDowntown_parcels2012.zip', {
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup("Parcel ID: <a href='http://qpublic9.qpublic.net/ga_display_dw.php?county=ga_fulton&KEY=" + feature.properties.PARID + "' target='_blank'>" + feature.properties.PARID + "</a><br>" + feature.properties.LandUseSpe + "<br>" + feature.properties.SITUS);
+  },
+  style: {color: '#f07300',
+    opacity: 1,
+    weight: 1},
+});
 
-L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
-  attribution: 
-  'Made at <a href="http://www.codeforamerica.org/events/codeacross-2015/">CodeAcross</a> for <a href="http://www.codeforatlanta.org/"><img src="images/code-for-atlanta.png" height=70></a>' +
-  '<br>Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />',
-  maxZoom: 18
-}).addTo(map);
+
+// standard layers
 
 var southDowntownLayer = L.geoJson(southDowntown, {
   onEachFeature: function(feature, layer) {
@@ -64,7 +73,7 @@ var southDowntownLayer = L.geoJson(southDowntown, {
   },
   style: {color: '#007df0',
     opacity: 1},
-}).addTo(map);
+});
 
 var MARTALayer = L.geoJson(marta, {
   onEachFeature: function(feature, layer) {layer.bindPopup(feature.properties.Description)},
@@ -76,7 +85,7 @@ var MARTALayer = L.geoJson(marta, {
     })
   });
   }
-}).addTo(map);
+});
 
 var historicalMarkersLayer = L.geoJson(historicalMarkers, {
   onEachFeature: function(feature, layer) {layer.bindPopup("<b>Historical Marker</b><br>" + feature.properties.name + "<br>" + feature.properties.cmt + "<br>" + feature.properties.desc + "<br><a href='" + feature.properties.link1_href + "'>Additional information on HMdb.org</a>")},
@@ -88,7 +97,7 @@ var historicalMarkersLayer = L.geoJson(historicalMarkers, {
     })
   });
   }
-}).addTo(map);
+});
 
 var landmarksLayer = L.geoJson(landmarks, {
   onEachFeature: function(feature, layer) {
@@ -96,7 +105,7 @@ var landmarksLayer = L.geoJson(landmarks, {
   style: {color: '#8e44ad',
     fillOpacity: 0.6,
     weight: 0},
-}).addTo(map);
+});
 
 var artLayer = L.geoJson(art, {
   onEachFeature: function(feature, layer) {
@@ -109,7 +118,7 @@ var artLayer = L.geoJson(art, {
     })
   });
   }
-}).addTo(map);
+});
 
 var communityAssetsLayer = L.geoJson(communityAssets, {
   onEachFeature: function(feature, layer) {
@@ -122,7 +131,7 @@ var communityAssetsLayer = L.geoJson(communityAssets, {
     })
   });
   }
-}).addTo(map);
+});
 
 var vacantLayer = L.geoJson(vacant, {
   onEachFeature: function(feature, layer) {
@@ -135,11 +144,31 @@ var vacantLayer = L.geoJson(vacant, {
     })
   });
   }
+});
+
+// colors: 'red', 'darkred', 'orange', 'green', 'darkgreen', 'blue', 'purple', 'darkpuple', 'cadetblue'
+
+
+// map
+
+var map = L.map('map', {
+  attributionControl: false,
+  center: new L.LatLng(33.75, -84.392), 
+  zoom: 15,
+  layers: [historicalMapLayer, southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, foursquarePlaces]
+});
+L.control.attribution({position: 'bottomleft'}).addTo(map);
+
+L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
+  attribution: 
+  'Made at <a href="http://www.codeforamerica.org/events/codeacross-2015/">CodeAcross</a> for <a href="http://www.codeforatlanta.org/"><img src="images/code-for-atlanta.png" height=70></a>' +
+  '<br>Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />',
+  maxZoom: 18
 }).addTo(map);
 
-// overlay
-
 var overlayMaps = {
+  "<span style='color: #f07300;'>▌</span>Parcels": parcelLayer,
+  "1949 Aerial Survey": historicalMapLayer,
   "<i class='fa fa-circle-o' style='color:#A13336'></i> Vacant Properties": vacantLayer,
   "<i class='fa fa-group' style='color:#436877'></i> Community Assets": communityAssetsLayer,
   "<i class='fa fa-paint-brush' style='color:#D43E2A'></i> Art": artLayer,

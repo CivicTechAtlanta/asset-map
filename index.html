@@ -16,6 +16,10 @@
   <![endif]-->
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
+  <!-- Leaflet Shapefile -->
+  <script type="text/javascript" src="plugins/leaflet-shapefile/leaflet.shpfile.js"></script>
+  <script type="text/javascript" src="plugins/leaflet-shapefile/shp.min.js"></script>
+
   <!-- Omnivore -->
   <script src='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.0.1/leaflet-omnivore.min.js'></script>
 
@@ -61,11 +65,6 @@
 
 <div id="map"></div>
 
-<script type="text/javascript">
-  var map = L.map('map', {
-    attributionControl: false
-  }).setView([33.750,-84.392], 15);
-</script>
 <script type="text/javascript" src="map.js"></script>
 
 
