@@ -24,14 +24,14 @@ var API_ENDPOINT = 'https://api.foursquare.com/v2/venues/search' +
   '&limit=50' +
   '&intent=browse' +
   // '&query=coffee' +
-  '&categoryId=4bf58dd8d48988d126941735' +
+  '&categoryId=CATEGORY_ID' +
   '&callback=?';
 
-var foursquarePlaces = L.layerGroup();
-
+var governmentBuildingsLayer = L.layerGroup();
 $.getJSON(API_ENDPOINT
   .replace('CLIENT_ID', CLIENT_ID)
-  .replace('CLIENT_SECRET', CLIENT_SECRET), function(result, status) {
+  .replace('CLIENT_SECRET', CLIENT_SECRET)
+  .replace('CATEGORY_ID', '4bf58dd8d48988d126941735'), function(result, status) {
 
     if (status !== 'success') return alert('Request to Foursquare failed');
 
@@ -47,7 +47,82 @@ $.getJSON(API_ENDPOINT
         })
       })
       .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong>')
-      .addTo(foursquarePlaces);
+      .addTo(governmentBuildingsLayer);
+    }
+
+  });
+
+var entertainmentLayer = L.layerGroup();
+$.getJSON(API_ENDPOINT
+  .replace('CLIENT_ID', CLIENT_ID)
+  .replace('CLIENT_SECRET', CLIENT_SECRET)
+  .replace('CATEGORY_ID', '4bf58dd8d48988d1f1931735'), function(result, status) {
+
+    if (status !== 'success') return alert('Request to Foursquare failed');
+
+    // transform venue result into map marker
+    for (var i = 0; i < result.response.venues.length; i++) {
+      var venue = result.response.venues[i];
+      var latlng = L.latLng(venue.location.lat, venue.location.lng);
+      var marker = L.marker(latlng, {
+        icon: L.AwesomeMarkers.icon({
+          icon: 'birthday-cake',
+          prefix: 'fa',
+          markerColor: 'purple'
+        })
+      })
+      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong>')
+      .addTo(entertainmentLayer);
+    }
+
+  });
+
+var residentialLayer = L.layerGroup();
+$.getJSON(API_ENDPOINT
+  .replace('CLIENT_ID', CLIENT_ID)
+  .replace('CLIENT_SECRET', CLIENT_SECRET)
+  .replace('CATEGORY_ID', '4d954b06a243a5684965b473'), function(result, status) {
+
+    if (status !== 'success') return alert('Request to Foursquare failed');
+
+    // transform venue result into map marker
+    for (var i = 0; i < result.response.venues.length; i++) {
+      var venue = result.response.venues[i];
+      var latlng = L.latLng(venue.location.lat, venue.location.lng);
+      var marker = L.marker(latlng, {
+        icon: L.AwesomeMarkers.icon({
+          icon: 'home',
+          prefix: 'fa',
+          markerColor: 'darkpurple'
+        })
+      })
+      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong>')
+      .addTo(residentialLayer);
+    }
+
+  });
+
+var foodLayer = L.layerGroup();
+$.getJSON(API_ENDPOINT
+  .replace('CLIENT_ID', CLIENT_ID)
+  .replace('CLIENT_SECRET', CLIENT_SECRET)
+  .replace('CATEGORY_ID', '4d4b7105d754a06374d81259'), function(result, status) {
+
+    if (status !== 'success') return alert('Request to Foursquare failed');
+
+    // transform venue result into map marker
+    for (var i = 0; i < result.response.venues.length; i++) {
+      var venue = result.response.venues[i];
+      var latlng = L.latLng(venue.location.lat, venue.location.lng);
+      var marker = L.marker(latlng, {
+        icon: L.AwesomeMarkers.icon({
+          icon: 'cutlery',
+          prefix: 'fa',
+          markerColor: 'darkgreen'
+        })
+      })
+      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong>')
+      .addTo(foodLayer);
     }
 
   });
@@ -155,7 +230,7 @@ var map = L.map('map', {
   attributionControl: false,
   center: new L.LatLng(33.75, -84.392), 
   zoom: 15,
-  layers: [historicalMapLayer, southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, foursquarePlaces]
+  layers: [historicalMapLayer, southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, entertainmentLayer, residentialLayer, foodLayer]
 });
 L.control.attribution({position: 'bottomleft'}).addTo(map);
 
@@ -167,6 +242,9 @@ L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var overlayMaps = {
+  "<i class='fa fa-cutlery' style='color:#728224'></i> Food <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": foodLayer,
+  "<i class='fa fa-home' style='color:#5B396B'></i> Residential Building <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": residentialLayer,
+  "<i class='fa fa-birthday-cake' style='color:#D152B8'></i> Entertainment <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": entertainmentLayer,
   "<span style='color: #f07300;'>▌</span>Parcels": parcelLayer,
   "1949 Aerial Survey": historicalMapLayer,
   "<i class='fa fa-circle-o' style='color:#A13336'></i> Vacant Properties": vacantLayer,
@@ -175,7 +253,7 @@ var overlayMaps = {
   "<i class='fa fa-subway' style='color:#F49630'></i> MARTA Train Stations": MARTALayer,
   "<i class='fa fa-flag' style='color:#38AADD'></i> Historical Markers": historicalMarkersLayer,
   "<span style='color: #8e44ad;'>▌</span>Landmarks": landmarksLayer,
-  "<i class='fa fa-university' style='color:#72AF26'></i> Government Buildings <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": foursquarePlaces
+  "<i class='fa fa-university' style='color:#72AF26'></i> Government Buildings <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": governmentBuildingsLayer
 };
 
 L.control.layers(null, overlayMaps, {
