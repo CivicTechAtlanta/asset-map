@@ -50,7 +50,7 @@ $.getJSON(API_ENDPOINT
           markerColor: 'green'
         })
       })
-      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong>')
+      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong><br>' + venue.categories[0]["name"])
       .addTo(governmentBuildingsLayer);
     }
 
@@ -75,7 +75,7 @@ $.getJSON(API_ENDPOINT
           markerColor: 'purple'
         })
       })
-      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong>')
+      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong><br>' + venue.categories[0]["name"])
       .addTo(entertainmentLayer);
     }
 
@@ -100,7 +100,7 @@ $.getJSON(API_ENDPOINT
           markerColor: 'darkpurple'
         })
       })
-      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong>')
+      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong><br>' + venue.categories[0]["name"])
       .addTo(residentialLayer);
     }
 
@@ -125,7 +125,7 @@ $.getJSON(API_ENDPOINT
           markerColor: 'darkgreen'
         })
       })
-      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong>')
+      .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '" target="_blank">' + venue.name + '</a></strong><br>' + venue.categories[0]["name"])
       .addTo(foodLayer);
     }
 
@@ -141,6 +141,22 @@ var parcelLayer = L.shapefile('data/SD_parcel2012/southDowntown_parcels2012.zip'
   style: {color: '#f07300',
     opacity: 1,
     weight: 1},
+});
+
+var censusBlocksLayer = L.shapefile('data/census-blocks.zip', {
+  onEachFeature: function(feature, layer) {
+    var popdens = (isNaN(feature.properties.popdens)) ? 0 : feature.properties.popdens;
+    layer.bindPopup("Census Block " + feature.properties.GEOID10 + "<br>Population density: " + popdens + " people per km<sup>2</sup>");
+  },
+  style: function(feature) {
+    var popdens = (isNaN(feature.properties.popdens)) ? 0 : feature.properties.popdens;
+    return {
+      fillOpacity: (popdens / 10000) + 0.1,
+      weight: 1,
+      opacity: 1,
+      color: '#f8b50c'
+    };
+  }
 });
 
 
@@ -234,7 +250,7 @@ var map = L.map('map', {
   attributionControl: false,
   center: new L.LatLng(33.75, -84.392), 
   zoom: 15,
-  layers: [southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, entertainmentLayer, residentialLayer, foodLayer]
+  layers: [southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, entertainmentLayer, residentialLayer, foodLayer, censusBlocksLayer]
 });
 L.control.attribution({position: 'bottomleft'}).addTo(map);
 
@@ -249,6 +265,7 @@ var overlayMaps = {
   "<i class='fa fa-cutlery' style='color:#728224'></i> Food <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": foodLayer,
   "<i class='fa fa-home' style='color:#5B396B'></i> Residential Building <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": residentialLayer,
   "<i class='fa fa-birthday-cake' style='color:#D152B8'></i> Entertainment <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": entertainmentLayer,
+  "<span style='color: #f8b50c;'>▌</span>Population Density": censusBlocksLayer,
   "<span style='color: #f07300;'>▌</span>Parcels": parcelLayer,
   "Neighborhood Profile": neighborhoodProfileLayer,
   "1949 Aerial Survey": historicalMapLayer,
