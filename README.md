@@ -82,3 +82,21 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 * Filming locations
 * Retail
 * Integrating other CodeAcross groups' efforts: storytelling, branding, participatory
+
+
+##Collaborators
+
+* John Mancini
+* Kyle Kessler
+* Rudy Goodwine
+* Katie OConnell
+* Darin Givens
+* Jimmy Lo
+* Janae Futrell
+* Luigi Montanez
+* Mollie Taylor
+* Ethan Henderson
+* Scott Henderson
+* Brian Lackey
+* Matthew Jones
+* John Crocker
