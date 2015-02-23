@@ -263,7 +263,7 @@ L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
 
 var overlayMaps = {
   "<i class='fa fa-cutlery' style='color:#728224'></i> Food <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": foodLayer,
-  "<i class='fa fa-home' style='color:#5B396B'></i> Residential Building <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": residentialLayer,
+  "<i class='fa fa-home' style='color:#5B396B'></i> Residential Buildings <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": residentialLayer,
   "<i class='fa fa-birthday-cake' style='color:#D152B8'></i> Entertainment <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": entertainmentLayer,
   "<span style='color: #f8b50c;'>▌</span>Population Density": censusBlocksLayer,
   "<span style='color: #f07300;'>▌</span>Parcels": parcelLayer,

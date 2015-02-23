@@ -98,7 +98,7 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 * Mollie Taylor
 * Ethan Henderson
 * Scott Henderson
-* Brian Lackey
+* Bryan Lackey
 * Matthew Jones
 * John Crocker
 
