@@ -13,7 +13,7 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 * Food, [Foursquare](https://developer.foursquare.com/docs/explore#req=venues/categories)
 * Art
 * Community assets
-* Vacant properties
+* Vacant properties 
 * Parcels, [Fulton County Board of Assessors](http://www.qpublic.net/ga/fulton/)
 * Neighborhood Profile, [City of Atlanta](http://www.atlantaga.gov/modules/showdocument.aspx?documentid=7903)
 * Population Density, [United States Census Bureau](http://factfinder.census.gov/)
@@ -43,6 +43,7 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 ##Future Goals:
 
 * Add more layers
+* Make vacancy data more clear (it currently seems like whole buildings are vacant that aren't)
 * Create separate maps for different audiences
 * Add to South Downtown website
 
@@ -100,3 +101,19 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 * Brian Lackey
 * Matthew Jones
 * John Crocker
+
+
+##Stack
+
+* Research, Cleaning, and Geocoding
+	* [QGIS](http://www2.qgis.org/en/site/)
+	* Ruby (see [https://github.com/codeforatlanta/csv_geocoder](https://github.com/codeforatlanta/csv_geocoder))
+* Implementation
+	* HTML, CSS, Javascript
+	* [Leaflet](http://leafletjs.com/)
+	* [leaflet-omnivore](https://github.com/mapbox/leaflet-omnivore)
+	* [leaflet.shapefile](https://github.com/calvinmetcalf/leaflet.shapefile) & [shapefile-js](https://github.com/calvinmetcalf/shapefile-js)
+	* jQuery (for Foursquare API integration)
+	* [Foursquare API](https://developer.foursquare.com/)
+	* [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+	* [Leaflet.awesome-markers](https://github.com/lvoogdt/Leaflet.awesome-markers)
