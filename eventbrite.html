@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes">
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+  <title>South Downtown</title>
+  <link rel="icon"
+    type="image/png"
+    href="http://mollietaylor.com/favicon.png">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+  <![endif]-->
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+  <!-- Leaflet Shapefile -->
+  <script type="text/javascript" src="plugins/leaflet-shapefile/leaflet.shpfile.js"></script>
+  <script type="text/javascript" src="plugins/leaflet-shapefile/shp.min.js"></script>
+
+  <!-- Omnivore -->
+  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <!-- Awesome Markers -->
+  <link rel="stylesheet" type="text/css" href="plugins/awesome-markers/leaflet.awesome-markers.css">
+  <script type="text/javascript" src="plugins/awesome-markers/leaflet.awesome-markers.min.js"></script>
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+  <style type="text/css">
+    html, body{
+      padding: 0;
+      margin: 0 auto;
+      height: 100%;
+      width: 100%;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .intro-popup .leaflet-popup-tip-container {
+      width: 0;
+      height: 0;
+    }
+  </style>
+
+</head>
+<body>
+
+<div id="map"></div>
+
+<script type="text/javascript" src="eventbrite.js"></script>
+
+
+</body>
+</html>
