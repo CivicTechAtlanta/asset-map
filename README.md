@@ -9,14 +9,15 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 * Aerial survey, 1949, [Georgia State University](http://digitalcollections.library.gsu.edu/cdm/ref/collection/atlaerial/id/134)
 * Government buildings, [Foursquare](https://developer.foursquare.com/docs/explore#req=venues/categories)
 * Entertainment, [Foursquare](https://developer.foursquare.com/docs/explore#req=venues/categories)
-* Residential Building, [Foursquare](https://developer.foursquare.com/docs/explore#req=venues/categories)
+* Residential buildings, [Foursquare](https://developer.foursquare.com/docs/explore#req=venues/categories)
 * Food, [Foursquare](https://developer.foursquare.com/docs/explore#req=venues/categories)
 * Art
 * Community assets
 * Vacant properties 
 * Parcels, [Fulton County Board of Assessors](http://www.qpublic.net/ga/fulton/)
-* Neighborhood Profile, [City of Atlanta](http://www.atlantaga.gov/modules/showdocument.aspx?documentid=7903)
-* Population Density, [United States Census Bureau](http://factfinder.census.gov/)
+* Neighborhood profile, [City of Atlanta](http://www.atlantaga.gov/modules/showdocument.aspx?documentid=7903)
+* Population density, [United States Census Bureau](http://factfinder.census.gov/)
+* **Separate map**: Local events, [Eventbrite](http://developer.eventbrite.com/docs/)
 
 ##Possible Foursquare category additions:
 
