@@ -121,11 +121,19 @@ function makeMarker(category) {
 
 // map
 
+var southDowntownLayer = L.geoJson(southDowntown, {
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup(feature.properties.name);
+  },
+  style: {color: '#007df0',
+    opacity: 1},
+});
+
 var map = L.map('map', {
   attributionControl: false,
   center: new L.LatLng(33.75, -84.392), 
   zoom: 15,
-  layers: [eventbriteLayer]
+  layers: [southDowntownLayer, eventbriteLayer]
 });
 L.control.attribution({position: 'bottomleft'}).addTo(map);
 
