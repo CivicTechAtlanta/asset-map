@@ -134,6 +134,42 @@ $.getJSON(API_ENDPOINT
 
 // shapefiles
 
+var NSPLayer = L.shapefile('data/NSP.zip', {
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup("");
+  },
+  style: {color: '#00ffff',
+    opacity: 1,
+    weight: 1},
+});
+
+var cityCouncilLayer = L.shapefile('data/city-council.zip', {
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup("City council district: " + feature.properties.DISTRICT);
+  },
+  style: {color: '#0000ff',
+    opacity: 1,
+    weight: 1},
+});
+
+var TADLayer = L.shapefile('data/TAD.zip', {
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup(feature.properties.TAD_NAME + " TAD");
+  },
+  style: {color: '#ffff00',
+    opacity: 1,
+    weight: 1},
+});
+
+var zoningLayer = L.shapefile('data/zoning-base-updated.zip', {
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup("Status: " + feature.properties.STATUS + "<br>Zoning: " + feature.properties.ZONING);
+  },
+  style: {color: '#ff0000',
+    opacity: 1,
+    weight: 1},
+});
+
 var parcelLayer = L.shapefile('data/SD_parcel2012/southDowntown_parcels2012.zip', {
   onEachFeature: function(feature, layer) {
     layer.bindPopup("Parcel ID: <a href='http://qpublic9.qpublic.net/ga_display_dw.php?county=ga_fulton&KEY=" + feature.properties.PARID + "' target='_blank'>" + feature.properties.PARID + "</a><br>" + feature.properties.LandUseSpe + "<br>" + feature.properties.SITUS);
@@ -250,7 +286,7 @@ var map = L.map('map', {
   attributionControl: false,
   center: new L.LatLng(33.75, -84.392), 
   zoom: 15,
-  layers: [southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, entertainmentLayer, residentialLayer, foodLayer, censusBlocksLayer]
+  layers: [southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, entertainmentLayer, residentialLayer, foodLayer, censusBlocksLayer, zoningLayer]
 });
 L.control.attribution({position: 'bottomleft'}).addTo(map);
 
@@ -267,6 +303,10 @@ var overlayMaps = {
   "<i class='fa fa-birthday-cake' style='color:#D152B8'></i> Entertainment <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": entertainmentLayer,
   "<span style='color: #f8b50c;'>▌</span>Population Density": censusBlocksLayer,
   "<span style='color: #f07300;'>▌</span>Parcels": parcelLayer,
+  "<span style='color: #ff0000;'>▌</span>Zoning": zoningLayer,
+  "<span style='color: #ffff00;'>▌</span>Tax Allocation Districts": TADLayer,
+  "<span style='color: #00ffff;'>▌</span>Neighborhood Stabilization Program": NSPLayer,
+  "<span style='color: #0000ff;'>▌</span>City Council Districts": cityCouncilLayer,
   "Neighborhood Profile": neighborhoodProfileLayer,
   "1949 Aerial Survey": historicalMapLayer,
   "<i class='fa fa-circle-o' style='color:#A13336'></i> Vacant Properties": vacantLayer,

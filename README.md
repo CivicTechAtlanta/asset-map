@@ -17,6 +17,10 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 * Parcels, [Fulton County Board of Assessors](http://www.qpublic.net/ga/fulton/)
 * Neighborhood profile, [City of Atlanta](http://www.atlantaga.gov/modules/showdocument.aspx?documentid=7903)
 * Population density, [United States Census Bureau](http://factfinder.census.gov/)
+* Zoning, [City of Atlanta](http://gis.atlantaga.gov/apps/gislayers/download/)
+* Tax Allocation Districts, [City of Atlanta](http://gis.atlantaga.gov/apps/gislayers/download/)
+* City Council Districts, [City of Atlanta](http://gis.atlantaga.gov/apps/gislayers/download/)
+* Neighborhood Stabilization Program, [City of Atlanta](http://gis.atlantaga.gov/apps/gislayers/download/)
 * **Separate map**: Local events, [Eventbrite](http://developer.eventbrite.com/docs/)
 
 ##Possible Foursquare category additions:
@@ -47,21 +51,23 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 * Make vacancy data more clear (it currently seems like whole buildings are vacant that aren't)
 * Create separate maps for different audiences
 * Add to South Downtown website
+* Think about dream data and what we could gather
 
 ##Some possible ways to narrow the map for different audiences
 
 * Real estate developers
 * Advocacy (city planning, decision-makers, etc.)
 * Visitors
+* Residents
 
 ##Potential Additions:
 
 * Population density and demographics
-* Zoning
+* Schools
+* Street closures
 * Parking (lots, decks, street)
 * Use parcel layer to shade parcels based on data (use, ownership, etc.)
 * Historical uses (esp. for vacancies)
-* Tax (TAD?)
 * More transit
 	* Bus stops (MARTA and regional) and/or routes
 	* Greyhound
@@ -102,6 +108,7 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 * Bryan Lackey
 * Matthew Jones
 * John Crocker
+* India Calhoun
 
 
 ##Stack
