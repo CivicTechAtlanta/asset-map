@@ -286,7 +286,7 @@ var map = L.map('map', {
   attributionControl: false,
   center: new L.LatLng(33.75, -84.392), 
   zoom: 15,
-  layers: [southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, entertainmentLayer, residentialLayer, foodLayer, censusBlocksLayer, zoningLayer]
+  layers: [southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, residentialLayer, foodLayer, censusBlocksLayer, zoningLayer]
 });
 L.control.attribution({position: 'bottomleft'}).addTo(map);
 
@@ -300,7 +300,6 @@ L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
 var overlayMaps = {
   "<i class='fa fa-cutlery' style='color:#728224'></i> Food <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": foodLayer,
   "<i class='fa fa-home' style='color:#5B396B'></i> Residential Buildings <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": residentialLayer,
-  "<i class='fa fa-birthday-cake' style='color:#D152B8'></i> Entertainment <img src='images/foursquare-logomark.png' width='18' valign='bottom'>": entertainmentLayer,
   "<span style='color: #f8b50c;'>▌</span>Population Density": censusBlocksLayer,
   "<span style='color: #f07300;'>▌</span>Parcels": parcelLayer,
   "<span style='color: #ff0000;'>▌</span>Zoning": zoningLayer,
@@ -309,9 +308,9 @@ var overlayMaps = {
   "<span style='color: #0000ff;'>▌</span>City Council Districts": cityCouncilLayer,
   "Neighborhood Profile": neighborhoodProfileLayer,
   "1949 Aerial Survey": historicalMapLayer,
-  "<i class='fa fa-circle-o' style='color:#A13336'></i> Vacant Properties": vacantLayer,
+  "<i class='fa fa-circle-o' style='color:#A13336'></i> Available Properties": vacantLayer,
   "<i class='fa fa-group' style='color:#436877'></i> Community Assets": communityAssetsLayer,
-  "<i class='fa fa-paint-brush' style='color:#D43E2A'></i> Art": artLayer,
+  "<i class='fa fa-paint-brush' style='color:#D43E2A'></i> Public Art": artLayer,
   "<i class='fa fa-subway' style='color:#F49630'></i> MARTA Train Stations": MARTALayer,
   "<i class='fa fa-flag' style='color:#38AADD'></i> Historical Markers": historicalMarkersLayer,
   "<span style='color: #8e44ad;'>▌</span>Landmarks": landmarksLayer,
