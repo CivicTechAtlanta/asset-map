@@ -156,9 +156,9 @@ var TADLayer = L.shapefile('data/TAD.zip', {
   onEachFeature: function(feature, layer) {
     layer.bindPopup(feature.properties.TAD_NAME + " TAD");
   },
-  style: {color: '#ffff00',
+  style: {color: '#00B200',
     opacity: 1,
-    weight: 1},
+    weight: 4},
 });
 
 var zoningLayer = L.shapefile('data/zoning-base-updated.zip', {
@@ -303,7 +303,7 @@ var overlayMaps = {
   "<span style='color: #f8b50c;'>▌</span>Population Density": censusBlocksLayer,
   "<span style='color: #f07300;'>▌</span>Parcels": parcelLayer,
   "<span style='color: #ff0000;'>▌</span>Zoning": zoningLayer,
-  "<span style='color: #ffff00;'>▌</span>Tax Allocation Districts": TADLayer,
+  "<span style='color: #00B200;'>▌</span>Tax Allocation Districts": TADLayer,
   "<span style='color: #00ffff;'>▌</span>Neighborhood Stabilization Program": NSPLayer,
   "<span style='color: #0000ff;'>▌</span>City Council Districts": cityCouncilLayer,
   "Neighborhood Profile": neighborhoodProfileLayer,
