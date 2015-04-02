@@ -167,7 +167,7 @@ var zoningLayer = L.shapefile('data/zoning-base-updated.zip', {
   },
   style: {color: '#ff0000',
     opacity: 1,
-    weight: 1},
+    weight: 3},
 });
 
 var parcelLayer = L.shapefile('data/SD_parcel2012/southDowntown_parcels2012.zip', {
