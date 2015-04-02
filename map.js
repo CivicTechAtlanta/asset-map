@@ -149,7 +149,7 @@ var cityCouncilLayer = L.shapefile('data/city-council.zip', {
   },
   style: {color: '#0000ff',
     opacity: 1,
-    weight: 1},
+    weight: 2},
 });
 
 var TADLayer = L.shapefile('data/TAD.zip', {
