@@ -17,6 +17,7 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 * Vacant properties 
 * Parcels, [Fulton County Board of Assessors](http://www.qpublic.net/ga/fulton/)
 * Neighborhood profile, [City of Atlanta](http://www.atlantaga.gov/modules/showdocument.aspx?documentid=7903)
+* National Register of Historic Places, [National Park Service](https://irma.nps.gov/App/Reference/Profile/2210280/)
 * Population density, [United States Census Bureau](http://factfinder.census.gov/)
 * Zoning, [City of Atlanta](http://gis.atlantaga.gov/apps/gislayers/download/)
 * Tax Allocation Districts, [City of Atlanta](http://gis.atlantaga.gov/apps/gislayers/download/)

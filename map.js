@@ -206,6 +206,15 @@ var southDowntownLayer = L.geoJson(southDowntown, {
     opacity: 1},
 });
 
+var nationalRegisterLayer = L.geoJson(nationalRegister, {
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup(feature.properties.name);
+  },
+  style: {color: '#002F68',
+    weight: 2,
+    opacity: 1},
+});
+
 var bikeRackLayer = L.geoJson(bikeRacks, {
   onEachFeature: function(feature, layer) {layer.bindPopup(feature.properties.popup)},
   pointToLayer: function(feature, latlng) {
@@ -298,7 +307,7 @@ var map = L.map('map', {
   attributionControl: false,
   center: new L.LatLng(33.75, -84.392), 
   zoom: 15,
-  layers: [southDowntownLayer, bikeRackLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, residentialLayer, foodLayer, censusBlocksLayer, zoningLayer]
+  layers: [southDowntownLayer, bikeRackLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, residentialLayer, foodLayer, nationalRegisterLayer, censusBlocksLayer, zoningLayer]
 });
 L.control.attribution({position: 'bottomleft'}).addTo(map);
 
@@ -318,6 +327,7 @@ var overlayMaps = {
   "<span style='color: #00B200;'>▌</span>Tax Allocation Districts": TADLayer,
   "<span style='color: #00ffff;'>▌</span>Neighborhood Stabilization Program": NSPLayer,
   "<span style='color: #0000ff;'>▌</span>City Council Districts": cityCouncilLayer,
+  "<span style='color: #002F68;'>▌</span>National Register of Historic Places": nationalRegisterLayer,
   "Neighborhood Profile": neighborhoodProfileLayer,
   "1949 Aerial Survey": historicalMapLayer,
   "<i class='fa fa-circle-o' style='color:#A13336'></i> Available Properties": vacantLayer,
