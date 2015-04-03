@@ -206,6 +206,18 @@ var southDowntownLayer = L.geoJson(southDowntown, {
     opacity: 1},
 });
 
+var bikeRackLayer = L.geoJson(bikeRacks, {
+  onEachFeature: function(feature, layer) {layer.bindPopup(feature.properties.popup)},
+  pointToLayer: function(feature, latlng) {
+    return L.marker(latlng, {icon: L.AwesomeMarkers.icon({
+      icon: 'bicycle',
+      prefix: 'fa',
+      markerColor: 'purple'
+    })
+  });
+  }
+});
+
 var MARTALayer = L.geoJson(marta, {
   onEachFeature: function(feature, layer) {layer.bindPopup(feature.properties.Description)},
   pointToLayer: function(feature, latlng) {
@@ -286,7 +298,7 @@ var map = L.map('map', {
   attributionControl: false,
   center: new L.LatLng(33.75, -84.392), 
   zoom: 15,
-  layers: [southDowntownLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, residentialLayer, foodLayer, censusBlocksLayer, zoningLayer]
+  layers: [southDowntownLayer, bikeRackLayer, MARTALayer, historicalMarkersLayer, landmarksLayer, artLayer, communityAssetsLayer, vacantLayer, parcelLayer, governmentBuildingsLayer, residentialLayer, foodLayer, censusBlocksLayer, zoningLayer]
 });
 L.control.attribution({position: 'bottomleft'}).addTo(map);
 
@@ -311,6 +323,7 @@ var overlayMaps = {
   "<i class='fa fa-circle-o' style='color:#A13336'></i> Available Properties": vacantLayer,
   "<i class='fa fa-group' style='color:#436877'></i> Community Assets": communityAssetsLayer,
   "<i class='fa fa-paint-brush' style='color:#D43E2A'></i> Public Art": artLayer,
+  "<i class='fa fa-bicycle' style='color:#D152B8'></i> Bike Racks": bikeRackLayer,
   "<i class='fa fa-subway' style='color:#F49630'></i> MARTA Train Stations": MARTALayer,
   "<i class='fa fa-flag' style='color:#38AADD'></i> Historical Markers": historicalMarkersLayer,
   "<span style='color: #8e44ad;'>▌</span>Landmarks": landmarksLayer,

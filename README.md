@@ -3,6 +3,7 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 ##Data and sources: 
 
 * South Downtown polygon
+* Bike racks, [Central Atlanta Progress](http://www.atlantadowntown.com/guide/getting-around/bike-racks)
 * MARTA train stops, [Atlanta Regional Commission](http://documents.atlantaregional.com/GISdocs/rs_Marta_Rail_and_Stations_07.kmz)
 * Historical markers, [The Historical Marker Database](http://www.hmdb.org/CountiesGPXList.asp)
 * Landmarks, [City of Atlanta](http://gis.atlantaga.gov/apps/gislayers/download/)
