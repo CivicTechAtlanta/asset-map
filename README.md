@@ -96,21 +96,23 @@ This is a map of South Downtown Atlanta, created for [CodeAcross](http://www.cod
 
 ##Collaborators
 
-* John Mancini
-* Kyle Kessler
-* Rudy Goodwine
-* Katie OConnell
-* Darin Givens
-* Jimmy Lo
+* India Calhoun
+* John Crocker
 * Janae Futrell
-* Luigi Montanez
-* Mollie Taylor
+* Jasdeep Garcha
+* Darin Givens
+* Rudy Goodwine
 * Ethan Henderson
 * Scott Henderson
-* Bryan Lackey
 * Matthew Jones
-* John Crocker
-* India Calhoun
+* Kyle Kessler
+* John Kirkley
+* Bryan Lackey
+* Jimmy Lo
+* John Mancini
+* Luigi Montanez
+* Katie OConnell
+* Mollie Taylor
 
 
 ##Stack
