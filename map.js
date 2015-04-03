@@ -207,10 +207,16 @@ var southDowntownLayer = L.geoJson(southDowntown, {
 });
 
 var nationalRegisterLayer = L.geoJson(nationalRegister, {
-  onEachFeature: function(feature, layer) {
-    layer.bindPopup(feature.properties.name);
+  onEachFeature: function(feature, layer) {layer.bindPopup(feature.properties.name)},
+  pointToLayer: function(feature, latlng) {
+    return L.marker(latlng, {icon: L.AwesomeMarkers.icon({
+      icon: 'flag',
+      prefix: 'fa',
+      markerColor: 'darkblue'
+    })
+  });
   },
-  style: {color: '#002F68',
+  style: {color: '#005DAA',
     weight: 2,
     opacity: 1},
 });
@@ -327,7 +333,7 @@ var overlayMaps = {
   "<span style='color: #00B200;'>▌</span>Tax Allocation Districts": TADLayer,
   "<span style='color: #00ffff;'>▌</span>Neighborhood Stabilization Program": NSPLayer,
   "<span style='color: #0000ff;'>▌</span>City Council Districts": cityCouncilLayer,
-  "<span style='color: #002F68;'>▌</span>National Register of Historic Places": nationalRegisterLayer,
+  "<i class='fa fa-flag' style='color:#005DAA'></i> <span style='color: #005DAA;'>▌</span>National Register of Historic Places": nationalRegisterLayer,
   "Neighborhood Profile": neighborhoodProfileLayer,
   "1949 Aerial Survey": historicalMapLayer,
   "<i class='fa fa-circle-o' style='color:#A13336'></i> Available Properties": vacantLayer,
