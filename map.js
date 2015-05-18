@@ -305,7 +305,7 @@ var vacantLayer = L.geoJson(vacant, {
 });
 
 // colors: 'red', 'darkred', 'orange', 'green', 'darkgreen', 'blue', 'purple', 'darkpuple', 'cadetblue'
-
+// new colors: 'lightred', 'beige', 'lightgreen', 'lightblue', 'pink', 'cadetblue', 'white', 'gray', 'lightgray', 'black'
 
 // map
 
